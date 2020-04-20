@@ -74,10 +74,23 @@ abstract class Geometry implements GeometryInterface, Jsonable, \JsonSerializabl
         $srid = substr($wkb, 0, 4);
         $srid = unpack('L', $srid)[1];
 
-        $wkb = substr($wkb, 4);
+        /**
+         * The reason for this change is because
+         */
+//        $wkb = substr($wkb, 4);
+        /** @var Added by me $wkb */
+        $wkb = substr($wkb, 0);
+        /** @var  $parser */
+
         $parser = new Parser(new Factory());
 
         /** @var Geometry $parsed */
+
+        /**Added by me
+        echo($wkb);
+        echo("\n");
+         * */
+
         $parsed = $parser->parse($wkb);
 
         if ($srid > 0) {

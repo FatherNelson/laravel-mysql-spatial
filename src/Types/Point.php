@@ -48,7 +48,6 @@ class Point extends Geometry
     public static function fromPair($pair, $srid = 0)
     {
         list($lng, $lat) = explode(' ', trim($pair, "\t\n\r \x0B()"));
-
         return new static((float) $lat, (float) $lng, (int) $srid);
     }
 
