@@ -192,6 +192,8 @@ trait SpatialTrait
             $geometry->toWkt(),
             $geometry->getSrid(),
         ]);
+
+	return $query;
     }
 
     public function scopeDistanceSphere($query, $geometryColumn, $geometry, $distance)
